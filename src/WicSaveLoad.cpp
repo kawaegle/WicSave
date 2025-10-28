@@ -6,7 +6,7 @@ bool wicsave::SaveData::Load()
         return false;
     if (!std::filesystem::exists(_saveFile)) {
         std::string err = "try to load ";
-        err += _saveFile;
+        err += _saveFile.string();
         err += " but don't exists";
         throw std::runtime_error(err);
     }

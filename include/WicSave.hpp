@@ -8,6 +8,11 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#ifdef _MSC_VER
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif
+
 #define HASH_SIZE 32
 
 namespace wicsave
