@@ -1,0 +1,30 @@
+---
+Language: Cpp
+IndentWidth: 4
+UseTab: Never
+Standard: c++17
+ColumnLimit: 170
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakAfterReturnType: None
+SeparateDefinitionBlocks: Always
+EmptyLineBeforeAccessModifier: LogicalBlock
+AllowShortIfStatementsOnASingleLine: false
+SpacesInConditionalStatement: false
+SpaceBeforeSquareBrackets: false
+IndentRequires: true
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
+  AfterForeachMacros: false
+  AfterFunctionDefinitionName: false
+  AfterFunctionDeclarationName: false
+  AfterIfMacros:   false
+  AfterOverloadedOperator: false
+  BeforeNonEmptyParentheses: false
+BreakBeforeBraces: Linux
+AllowShortLoopsOnASingleLine: true
+BraceWrapping:
+  AfterFunction: false
+  AfterControlStatement: false
+  AfterClass: false
+  AfterEnum: false
+  AfterStruct: false

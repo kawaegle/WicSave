@@ -1,0 +1,8 @@
+Makefile
+*.make
+bin
+.obj
+lib
+.cache
+compile_commands.json
+a.out
