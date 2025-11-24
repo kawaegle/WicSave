@@ -60,12 +60,8 @@ void wicsave::SaveData::_Parse(const void *data, size_t size)
 
 bool wicsave::SaveData::Load(const std::filesystem::path &file)
 {
-    std::filesystem::path old = this->_saveFile;
-    bool ret = false;
     this->_saveFile = file;
-    ret = this->Load();
-    this->_saveFile = old;
-    return ret;
+    return this->Load();
 }
 
 bool wicsave::SaveData::_Read(void *data, void *hash, size_t size)
