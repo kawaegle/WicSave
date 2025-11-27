@@ -13,8 +13,11 @@ bool wicsave::SaveData::Load()
 
     size_t file_size = std::filesystem::file_size(_saveFile);
 
+    if (file_size == 0)
+        return true;
+
     if (file_size < HASH_SIZE)
-        throw std::runtime_error("File too small for hash");
+        throw std::runtime_error("File too small no hash");
 
     std::vector<char> data(file_size - HASH_SIZE);
     std::vector<char> hash(HASH_SIZE);

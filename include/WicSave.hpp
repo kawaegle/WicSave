@@ -5,6 +5,7 @@
 #include <cstring>
 #include <filesystem>
 #include <fstream>
+#include <stdexcept>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -25,7 +26,17 @@ class SaveData
   public:
     SaveData() {};
 
-    SaveData(const std::filesystem::path &file) : _saveFile(file) {};
+    SaveData(const std::filesystem::path &file) : _saveFile(file)
+    {
+        if (!std::filesystem::exists(_saveFile)) {
+            std::ofstream ofs(_saveFile);
+            if (ofs.is_open())
+                ofs.close();
+            else {
+                throw std::runtime_error("you computer is on fire we can't create file");
+            }
+        }
+    };
 
     SaveData(SaveData &&) = default;
     SaveData(const SaveData &) = default;
@@ -80,8 +91,14 @@ class SaveData
     };
 
     /*
+     * Get the path where we want to save
+     * @return: the path where we save
+     */
+    const std::filesystem::path GetSaveFile() const;
+
+    /*
      * Get data from a given key
-     * @param key: the wkey where you saved the data
+     * @param key: the key where you saved the data
      * @return: the element of data or throw if trying to access to invalid key
      */
     const void *GetData(const std::string &key);

@@ -18,3 +18,8 @@ ssize_t wicsave::SaveData::GetDataSize(const std::string &key)
 
     return it->second.size();
 }
+
+const std::filesystem::path wicsave::SaveData::GetSaveFile() const
+{
+    return _saveFile;
+}
