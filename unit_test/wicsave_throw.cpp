@@ -19,8 +19,8 @@ TEST_F(SaveDataTest, SaveEmptyData)
 
 TEST_F(SaveDataTest, LoadNonExistentFile)
 {
-    wicsave::SaveData loader("nonexistent_file.dat");
-    EXPECT_THROW(loader.Load(), std::runtime_error);
+    wicsave::SaveData loader;
+    EXPECT_THROW(loader.Load("nonexistent.dat"), std::runtime_error);
 }
 
 TEST_F(SaveDataTest, GetDataWithInvalidKey)
